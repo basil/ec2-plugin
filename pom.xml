@@ -74,7 +74,9 @@ THE SOFTWARE.
 
   <properties>
     <changelist>999999-SNAPSHOT</changelist>
-    <jenkins.version>2.452.4</jenkins.version>
+    <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
+    <jenkins.baseline>2.452</jenkins.baseline>
+    <jenkins.version>${jenkins.baseline}.4</jenkins.version>
     <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
     <hpi.compatibleSinceVersion>1626</hpi.compatibleSinceVersion>
     <spotless.check.skip>false</spotless.check.skip>
@@ -84,8 +86,8 @@ THE SOFTWARE.
     <dependencies>
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
-        <artifactId>bom-2.452.x</artifactId>
-        <version>3875.v1df09947cde6</version>
+        <artifactId>bom-${jenkins.baseline}.x</artifactId>
+        <version>3944.v1a_e4f8b_452db_</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -117,6 +119,14 @@ THE SOFTWARE.
       <artifactId>aws-java-sdk2-ec2</artifactId>
     </dependency>
     <dependency>
+      <groupId>io.jenkins.plugins.mina-sshd-api</groupId>
+      <artifactId>mina-sshd-api-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.jenkins.plugins.mina-sshd-api</groupId>
+      <artifactId>mina-sshd-api-scp</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>apache-httpcomponents-client-4-api</artifactId>
     </dependency>
@@ -139,24 +149,14 @@ THE SOFTWARE.
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>node-iterator-api</artifactId>
-      <version>55.v3b_77d4032326</version>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>ssh-credentials</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.jenkins-ci.plugins</groupId>
-      <artifactId>trilead-api</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-step-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kohsuke</groupId>
-      <artifactId>libzfs</artifactId>
-      <version>0.8</version>
     </dependency>
     <dependency>
       <groupId>io.jenkins</groupId>
